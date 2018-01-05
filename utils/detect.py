@@ -46,7 +46,9 @@ def detect_by_number(frame, bbox_data, sec, number_template):
 
         if len(good) >= 7:
             cv2.rectangle(frame, (pos['x1'], pos['y1']),(pos['x2'], int((pos['y1']+pos['y2'])/2)),(255,0,0),3)
-            match = True
-            pos['value'] = len(good)
-            detected_pos.append(pos)
+            detected = True
+            pos_new = {}
+            pos_new['idx'] = p_id
+            pos_new['value'] = len(good)
+            detected_pos.append(pos_new)
     return detected, detected_pos
